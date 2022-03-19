@@ -11,35 +11,35 @@ import subprocess
 from datetime import datetime
 from time import sleep
 
-Anker = '0' # Default value
+Anker = ['0'] # Default value
 
 while True:
     if datetime.now().second == 0: # Wait until zero seconds.
         while True:
             try:
-                if Anker == '0' and datetime.now().hour == 0: # 0:00
+                if Anker[0] == '0' and datetime.now().hour == 0: # 0:00
                     subprocess.run('/usr/local/sbin/maldet --update', shell=True)
-                    Anker = '1'
-                elif Anker == '0' and datetime.now().hour == 7: # 07:00
+                    Anker[0] = '1'
+                elif Anker[0] == '0' and datetime.now().hour == 7: # 07:00
                     subprocess.run('/usr/local/sbin/maldet --update', shell=True)
-                    Anker = '1'
-                elif Anker == '0' and datetime.now().hour == 12: # 12:00
+                    Anker[0] = '1'
+                elif Anker[0] == '0' and datetime.now().hour == 12: # 12:00
                     subprocess.run('/usr/local/sbin/maldet --update', shell=True)
-                    Anker = '1'
-                elif Anker == '0' and datetime.now().hour == 19: # 19:00
+                    Anker[0] = '1'
+                elif Anker[0] == '0' and datetime.now().hour == 19: # 19:00
                     subprocess.run('/usr/local/sbin/maldet --update', shell=True)
-                    Anker = '1'
+                    Anker[0] = '1'
                 else:
-                    if Anker == '1' and datetime.now().hour == 0:
+                    if Anker[0] == '1' and datetime.now().hour == 0:
                         sleep(60)
-                    elif Anker == '1' and datetime.now().hour == 7:
+                    elif Anker[0] == '1' and datetime.now().hour == 7:
                         sleep(60)
-                    elif Anker == '1' and datetime.now().hour == 12:
+                    elif Anker[0] == '1' and datetime.now().hour == 12:
                         sleep(60)
-                    elif Anker == '1' and datetime.now().hour == 19:
+                    elif Anker[0] == '1' and datetime.now().hour == 19:
                         sleep(60)
                     else:
-                        Anker = '0'
+                        Anker[0] = '0'
                         sleep(60)
             except KeyboardInterrupt:
                 break
