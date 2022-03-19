@@ -1,0 +1,2 @@
+# Maldet Signature Updater
+*シグネチャーのスケジュールアップデート*
