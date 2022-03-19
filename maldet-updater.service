@@ -1,0 +1,12 @@
+[Unit]
+Description=Maldet Signeture Updater
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/bin/maldet-updater
+
+[Install]
+WantedBy=multi-user.target
+
+
